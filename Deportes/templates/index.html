@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQq7Km00glwg9MUspCentwWxyVx5D+DXw6g==" crossorigin="anonymous" />
+  <title>Landing Page de Deportes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      color: rgb(0, 0, 0);
+      padding: 100px 20px;
+      background-image: url('/Deportes/media/encabesado.jpeg'); /* URL de la imagen de fondo */
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+    }
+    .header h1 {
+      color: white;
+      margin: 0;
+      font-size: 3em;
+    }
+    .header h3 {
+      color: white;
+      font-size: 1.5em;
+      margin: 10px 0 0;
+    }
+    .content {
+      padding: 20px;
+      width: 100%;
+      background: linear-gradient(to bottom, #0091EA, #B3E5FC); /* Degradado */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .content p {
+      font-family: Arial, sans-serif; /* o cualquier otra fuente sans-serif que prefieras */
+      font-size: 18px; /* tamaño de letra */
+      font-weight: bold; /* grosor de letra */
+      line-height: 1.5; /* espacio entre líneas */
+      color: #333; /* color de letra */
+      text-align: justify; /* alineación de texto */
+    }
+    .content img {
+      max-width: 100%;
+      height: auto;
+    }
+    footer {
+      padding: 10px;
+      color: white;
+      background-color: #1F3E49;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>{{ titulo }}</h1>
+    <h3>{{ subtitulo }}</h3>
+  </div>
+  <div class="content">
+    {% for item in Deporte %}
+    <h3>{{ item.nombre }}</h3>
+    <i class="fas fa-futbol" style="font-size: 3em; color: red;"></i>
+    <img src="{{ item.imagen.url }}" alt="Deporte">
+    <p>{{ item.descripcion }}</p>
+    {% endfor %}
+    <p><a href="{% url 'galeriaFotos' %}" class="btn">Ver más</a></p>
+  </div>
+  <footer>© 2023 Landing Page Deportes</footer>
+</body>
+
+</html>
