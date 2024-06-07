@@ -45,17 +45,21 @@
     .content h3 {
       margin-top: 0;
     }
-    .gallery {
+    .imagenes {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+      grid-template-rows: repeat(2, auto); /* Dos filas con altura automática */
       gap: 10px;
       justify-content: center;
     }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    .imagenes img {
+      width: 250px;
+      height: 200px;
+      border-radius: 10px; /* Redondear las esquinas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregar una sombra */
     }
+
+    
     footer {
       padding: 10px;
       color: white;
@@ -84,7 +88,7 @@
   <div class="content">
       {% for item in Producto %}
       <h3>{{ item.nombre }}</h3>
-      <p><a href="" class="btn">Más</a></p>
+      <p><a href="{% url 'DetalleEstadios' %}" class="btn">Más</a></p>
       <div class="imagenes">
           <img src="{{ item.imagen1.url }}" alt="">
           <img src="{{ item.imagen2.url }}" alt="">
@@ -96,5 +100,4 @@
   </div>
   <footer>© 2023 Landing Page Deportes</footer>
 </body>
-
 </html>
